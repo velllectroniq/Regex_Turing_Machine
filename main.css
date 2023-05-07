@@ -1,0 +1,16 @@
+#tape {
+    max-height: 512px;
+    overflow-y: auto;
+    overflow-wrap: break-word;
+}
+
+td {
+    text-align: center;
+    width: 128px;
+}
+
+textarea {
+    width: 512px;
+    height: 128px;
+    resize: vertical;
+}

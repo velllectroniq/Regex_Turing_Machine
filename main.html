@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex Turing Machine</title>
+    <script src="main.js" defer></script>
+    <link rel="stylesheet" href="main.css">
+    <meta author="XaVery and JeFF">
+</head>
+<body onload="document.getElementById('tape').innerHTML = tape; writeRules(); compileRules(); setInterval(function(){singleStep()}, 1000)">
+    <h1>Regex Turing Machine</h1>
+    <a href="../main.html">Our other creations</a>
+    <p><button onclick="stepForward(document.getElementById('stepCount').value)">Go forward n times</button>
+        <input id="eternalGoing" type="checkbox"> Go forward n times per second, infinitely?
+        <br>n = <input id="stepCount" type="number" value="1">
+        Steps so far: <a id="stepsSoFar">0</a></p>
+    <p>The tape: <br><a id="tape"></a></p>
+    <p><button onclick="navigator.clipboard.writeText(tape); alert('Check the clipboard! (You can use it with Ctrl + V)')">Copy to clipboard</button>
+        <button onclick="console.log(tape); alert('Check console! (You can open it with F12)')">Print the tape in the console</button>
+        <button onclick="print(tape)">Print the tape on the paper</button></p>
+    <p>Tape's length: <a id="tapeLenght">1</a> ( + &infin; of zeroes)</p>
+    <hr>
+    <p><button onclick="cropTape()">Delete unwanted zeroes</button> <button onclick="addTape()">Add zeroes on each end of the tape</button><br>
+    <p>Starting state: <input id="startingState" type="text" value="a"><button onclick="resetTape()">Reset the tape</button></p>
+    <hr>
+    <table>
+        <thead><tr><td colspan="5">Current rules: <button onclick="writeRules()">Update rules</button></td></tr>
+            <tr><td>On state:</td><td>Current value:</td><td>Replace value:</td><td>Replace state:</td><td>Move direction:</td></tr></thead>
+        <tbody id="currentRules"></tbody>
+    </table>
+    <p>Print rules to the console: 
+        <button onclick="console.log(JSON.stringify(rulesArray)); alert('Check console! (You can open it with F12)')">
+            Print JSON of the rules</button> <a>or</a>
+        <button onclick="console.log(JSON.stringify(rules)); alert('Check console! (You can open it with F12)')">
+            Print JSON of the rules used by machine</button></p>
+    <p>Write new rules (They have to be valid JSON, check <a href="main.txt">Formatting Rules</a>): <br>
+        <textarea id="newRules"></textarea><br>
+        <button onclick="changeRules()">Reset the tape and change the rules</button> <button onclick="resetRules()">Reset rules</button></p>
+    <hr><p>Made by XaVery and JeFF</p>
+</body>
+</html>
