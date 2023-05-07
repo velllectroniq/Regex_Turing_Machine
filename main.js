@@ -7,6 +7,15 @@ var rulesArray = [
 ]
 var checkHalt = /H/
 
+window.onload = function() {
+    document.getElementById('tape').innerHTML = tape;
+    writeRules();
+    compileRules();
+    setInterval(function(){
+        singleStep()
+    }, 1000)
+}
+
 function newTape() {
     document.getElementById("tape").innerHTML = tape
     document.getElementById("tapeLenght").innerHTML = tape.replace(/[A-z2-9{}\[\]]/g, "").length

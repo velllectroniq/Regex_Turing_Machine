@@ -6,12 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Regex Turing Machine</title>
     <script src="main.js" defer></script>
-    <link rel="stylesheet" href="main.css">
     <meta author="XaVery and JeFF">
+    <style>
+        #tape {max-height: 512px;overflow-y: auto;overflow-wrap: break-word;}
+        td {text-align: center;width: 128px;}
+        textarea {width: 512px;height: 128px;}
+    </style>
 </head>
-<body onload="document.getElementById('tape').innerHTML = tape; writeRules(); compileRules(); setInterval(function(){singleStep()}, 1000)">
+<body>
     <h1>Regex Turing Machine</h1>
-    <a href="../main.html">Our other creations</a>
     <p><button onclick="stepForward(document.getElementById('stepCount').value)">Go forward n times</button>
         <input id="eternalGoing" type="checkbox"> Go forward n times per second, infinitely?
         <br>n = <input id="stepCount" type="number" value="1">
@@ -20,7 +23,7 @@
     <p><button onclick="navigator.clipboard.writeText(tape); alert('Check the clipboard! (You can use it with Ctrl + V)')">Copy to clipboard</button>
         <button onclick="console.log(tape); alert('Check console! (You can open it with F12)')">Print the tape in the console</button>
         <button onclick="print(tape)">Print the tape on the paper</button></p>
-    <p>Tape's length: <a id="tapeLenght">1</a> ( + &infin; of zeroes)</p>
+    <p>Tape's length: <a id="tapeLenght">1</a> (+ &infin; of zeroes)</p>
     <hr>
     <p><button onclick="cropTape()">Delete unwanted zeroes</button> <button onclick="addTape()">Add zeroes on each end of the tape</button><br>
     <p>Starting state: <input id="startingState" type="text" value="a"><button onclick="resetTape()">Reset the tape</button></p>
@@ -35,7 +38,7 @@
             Print JSON of the rules</button> <a>or</a>
         <button onclick="console.log(JSON.stringify(rules)); alert('Check console! (You can open it with F12)')">
             Print JSON of the rules used by machine</button></p>
-    <p>Write new rules (They have to be valid JSON, check <a href="main.txt">Formatting Rules</a>): <br>
+    <p>Write new rules (They have to be valid JSON, check Formatting Rules): <br>
         <textarea id="newRules"></textarea><br>
         <button onclick="changeRules()">Reset the tape and change the rules</button> <button onclick="resetRules()">Reset rules</button></p>
     <hr><p>Made by XaVery and JeFF</p>
