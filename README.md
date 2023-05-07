@@ -2,23 +2,23 @@
 Literally taken concept of Turing Machine, turned into reality.
 
 # Formatting Rules:
-    Rules are stored as an Array in which every element is an Object, like this:
+Rules are stored as an Array in which every element is an Object, like this:
 ```javascript
     [
         {
-            state: "a",                 <- String
+            state: "a",                 //<- String
             onTape: [
                 {
-                    currentValue: 0,    <- Fixed value, do not change
-                    replace: "1",       <- String
-                    newState: "b",      <- String
-                    goTo: "r"           <- String
+                    currentValue: 0,    //<- Fixed value, do not change
+                    replace: "1",       //<- String
+                    newState: "b",      //<- String
+                    goTo: "r"           //<- String
                 },
                 {
-                    currentValue: 1,    <- Fixed value, do not change
-                    replace: "0",       <- String
-                    newState: "c",      <- String
-                    goTo: "r"           <- String
+                    currentValue: 1,    //<- Fixed value, do not change
+                    replace: "0",       //<- String
+                    newState: "c",      //<- String
+                    goTo: "r"           //<- String
                 }
             ]
         },
