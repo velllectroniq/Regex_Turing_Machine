@@ -1,7 +1,9 @@
 # Regex_Turing_Machine
 Literally taken concept of Turing Machine, turned into reality.
 
-# Formatting Rules:
+It can *technically* work without the html page, but it gives a better GUI, basically.
+
+## Formatting Rules:
 Rules are stored as an Array in which every element is an Object, like this:
 ```javascript
     [
